@@ -12,6 +12,9 @@
                 :config="config"
                 @refresh="refresh"
         >
+          <template slot="selection" slot-scope="selection">
+            <q-btn class="primary clear" @click="goTo(selection)"><q-icon name="remove_red_eye"></q-icon>Visualizar Evento</q-btn>
+          </template>
             <template slot="col-created_at" slot-scope="cell">
                 <span>{{cell.row.created_at | moment }}</span>
             </template>
@@ -60,9 +63,6 @@
               <q-tooltip> Evento foi cancelado </q-tooltip>
             </div>
           </template>
-            <template slot="selection" slot-scope="selection">
-                <q-btn class="primary clear" @click="goTo(selection)"><q-icon name="remove_red_eye"></q-icon>Visualizar Evento</q-btn>
-            </template>
         </q-data-table>
         <q-fixed-position corner="bottom-left" :offset="[10, 10]">
             <q-tooltip>
@@ -116,7 +116,8 @@
           this.$router.push('/events/' + id + '/manage')
         },
         goTo (item) {
-          return this.$router.push('/events/' + item)
+          let id = item.rows[0].data.id
+          return this.$router.push('/events/' + id)
         },
         refresh (done) {
           this.timeout = setTimeout(() => {

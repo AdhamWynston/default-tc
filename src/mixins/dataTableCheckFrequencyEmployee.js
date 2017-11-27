@@ -25,7 +25,7 @@ export default {
           label: 'Nome',
           field: 'name',
           type: 'string',
-          width: '400px',
+          width: '200px',
           sort: true,
           filter: true
         },
@@ -33,7 +33,7 @@ export default {
           label: 'Nº Documento',
           field: 'document',
           sort: false,
-          width: '200px',
+          width: '150px',
           filter: true,
           format (value) {
             value = CPF.strip(value)

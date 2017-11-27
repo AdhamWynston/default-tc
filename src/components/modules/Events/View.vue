@@ -117,6 +117,10 @@
                 </q-list>
             </div>
         </div>
+      <q-fixed-position corner="bottom-left" :offset="[16, 16]">
+        <q-btn  @click="goEdit()" round icon="ion-edit" color="orange">
+        </q-btn>
+      </q-fixed-position>
     </div>
 </template>
 
@@ -235,6 +239,9 @@
         }
       },
       methods: {
+        goEdit () {
+          this.$router.push('/events/' + this.event.id + '/edit')
+        },
         alterChecked () {
           let check
           if (this.event.status === 1) {

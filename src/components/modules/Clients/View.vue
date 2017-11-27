@@ -108,8 +108,8 @@
         <div>
           <q-item tag="label">
             <q-item-main>
-              <q-item-tile label>Cliente está ativo?</q-item-tile>
-              <q-item-tile sublabel>Selecione se sim</q-item-tile>
+              <q-item-tile label>Situação</q-item-tile>
+              <q-item-tile sublabel>{{ status }}</q-item-tile>
             </q-item-main>
             <q-item-side right>
               <q-toggle @input="alterChecked" color="secondary" v-model="checked" />
@@ -131,7 +131,7 @@
       </div>
     </div>
     <q-fixed-position corner="bottom-left" :offset="[16, 16]">
-      <q-btn  @click="goReport()" round icon="ion-edit" color="orange">
+      <q-btn  @click="goEdit()" round icon="ion-edit" color="orange">
       </q-btn>
     </q-fixed-position>
   </div>
@@ -154,6 +154,14 @@ export default {
     }
   },
   computed: {
+    status () {
+      if (this.client.status === 1) {
+        return 'Cliente ativado'
+      }
+      else {
+        return 'Cliente Desativado'
+      }
+    },
     checked () {
       return this.client.status === 1
     },
@@ -189,7 +197,7 @@ export default {
         .then(() => {
           this.$store.dispatch('clientsGet', this.client.id)
           Toast.create.positive({
-            html: 'Status alterado com sucesso!',
+            html: 'Situação alterado com sucesso!',
             icon: 'done'
           })
         })

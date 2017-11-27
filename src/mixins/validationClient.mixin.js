@@ -46,7 +46,7 @@ export default {
     return {
       options: [
         {
-          label: 'Fisíca',
+          label: 'Física',
           value: 1
         },
         {

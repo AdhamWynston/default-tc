@@ -3,7 +3,7 @@
         <q-list no-border link inset-delimiter>
             <div class="row flex-center bg-white" style="width: 100%; height: 110px;"><img src="~assets/L.png" style="height: 75px;"> <div style="margin-left: 15px;">{{ this.username }}</div></div>
             <q-list-header>Ações no sistema</q-list-header>
-            <q-side-link item to="/home">
+            <q-side-link item to="/">
                 <q-item-side icon="home" />
                 <q-item-main label="Início" />
             </q-side-link>
@@ -28,8 +28,8 @@
             <q-item-main label="Relatórios" />
           </q-side-link>
             <q-item link @click="logout()">
-                <q-item-side  icon="ion-android-exit" />
-                <q-item-main label="Sair" />
+                <q-item-side  color="red" icon="ion-android-exit" />
+                <q-item-main class="text-negative" label="Sair" />
             </q-item>
         </q-list>
     </div>
