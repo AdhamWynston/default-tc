@@ -51,7 +51,15 @@ export default new VueRouter({
         { path: 'admin/users/:id/edit', component: load('modules/Users/Edit'), name: 'admin.users.edit', meta: { auth: true } }
       ]
     },
-    { path: '/login', component: load('modules/Auth/Login'), name: 'login' },
+    {
+      path: '/',
+      component: load('modules/Auth/Index'),
+      children: [
+        { path: '/login', component: load('modules/Auth/Login'), name: 'login' },
+        { path: '/password/:token', component: load('modules/Auth/CreatePassword'), name: 'password' },
+        { path: '/recovery', component: load('modules/Auth/Recovery'), name: 'recovery' }
+      ]
+    },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]

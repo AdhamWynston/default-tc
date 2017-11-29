@@ -3,12 +3,6 @@
             :right-breakpoint="1100"
             :page-class="{'bg-grey-13': true}"
             :left-class="{'dark': true}" >
-        <q-toolbar slot="header" color="dark" class="glossy">
-            <q-toolbar-title>
-                sgENV
-                <div slot="subtitle">Sistema Gerenciador de Eventos</div>
-            </q-toolbar-title>
-        </q-toolbar>
             <div class="layout-view layout-padding">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4 offset-md-4">
@@ -27,7 +21,7 @@
                         <br>
                         <q-btn color="primary" class="full-width" @click="submit()">Login</q-btn>
                         <div align="center">
-                          <a href=""> Esqueceu sua senha?</a>
+                          <a @click="goRecovery"> Esqueceu sua senha?</a>
                         </div>
                     </q-card-main>
                 </q-card>
@@ -50,6 +44,9 @@ export default {
     }
   },
   methods: {
+    goRecovery () {
+      return this.$router.push('/recovery')
+    },
     closeLoading () {
       setTimeout(Loading.hide, 600)
     },

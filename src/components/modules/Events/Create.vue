@@ -165,7 +165,7 @@
                                         :error="$v.form.zip_code.$error"
                                         error-label="Por favor, preencha este campo">
                                     <q-input
-                                            v-on:keyup="cepFormat"
+                                            @change="cepFormat"
                                             max-length="9"
                                             v-model="form.zip_code"
                                             float-label="CEP"

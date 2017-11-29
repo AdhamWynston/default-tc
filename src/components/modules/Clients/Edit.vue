@@ -282,27 +282,11 @@
       },
       documentComputed: {
         get: function () {
-          if (this.client && this.client.document) {
-            if (this.client.type === 1) {
-              if (this.client.document.length === 11) {
-                if (CPF.isValid(this.client.document)) {
-                  return CPF.format(this.client.document)
-                }
-                else {
-                  this.client.document = ''
-                  return Toast.create.negative('Informe um CPF válido')
-                }
-              }
-              else {
-                return CPF.format(this.client.document)
-              }
-            }
-            else {
-              return CNPJ.format(this.client.document)
-            }
+          if (this.client.type === 1) {
+            return CPF.format(this.client.document)
           }
           else {
-            return ''
+            return CNPJ.format(this.client.document)
           }
         },
         set: function (newValue) {
