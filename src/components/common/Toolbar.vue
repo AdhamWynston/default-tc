@@ -33,6 +33,9 @@
       Events
     },
     methods: {
+      back () {
+        window.history.go(-1)
+      },
       openDrawer () {
         Events.$emit('openDrawer', true)
       }

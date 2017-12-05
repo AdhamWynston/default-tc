@@ -5,8 +5,8 @@
     :left-breakpoint="indexStore.leftBreakpoint"
     :right-breakpoint="indexStore.rightBreakpoint"
     :reveal="indexStore.reveal"
-    :left-class="{'bg-grey-9': false}"
-    :page-class="{'bg-grey-9': false}"
+    :left-class="{'bg-grey-13': true}"
+    :page-class="{'bg-grey-13': true}"
     >
     <q-toolbar slot="header" class="glossy" color="dark" v-if="!indexStore.hideTabs">
       <q-toolbar-title>

@@ -1,14 +1,19 @@
 <template>
     <q-layout
-            :right-breakpoint="1100"
-            :page-class="{'bg-grey-13': true}"
+            :right-breakpoint="1000"
+            :page-class="{'bg-grey-4': true}"
             :left-class="{'dark': true}" >
-            <div class="layout-view layout-padding">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4 offset-md-4">
+                      <div align="center">
+                        <img src="./Logo.png" alt="Fjords" width="128" height="128">
+                      </div>
+                      <br>
+                      <div align="center">
+                        <span class="light-paragraph"><big>Acesse sua conta</big></span>
+                      </div>
                 <q-card color="light">
                     <q-card-title class="text-dark" align="center">
-                        <h5>Login</h5>
                     </q-card-title>
                     <q-card-main>
                         <q-field icon="mail">
@@ -27,7 +32,6 @@
                 </q-card>
             </div>
             </div>
-        </div>
     </q-layout>
 </template>
 

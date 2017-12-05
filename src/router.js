@@ -22,12 +22,13 @@ export default new VueRouter({
 
   routes: [
     {
-      path: '/',
+      path: '',
       component: load('Index'),
       children: [
         // HOME
         { path: '', component: load('Home'), meta: { auth: true } },
         { path: '/home', component: load('Home'), name: 'home', meta: { auth: true } },
+        { path: '/my-account', component: load('modules/Users/MyAccount'), name: 'my-account', meta: { auth: true } },
         // EVENT
         { path: '/events', component: load('modules/Events/List'), name: 'events.list', meta: { auth: true } },
         { path: '/events/create', component: load('modules/Events/Create'), name: 'events.create', meta: { auth: true } },

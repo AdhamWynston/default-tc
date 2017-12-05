@@ -63,6 +63,14 @@ router.beforeEach((to, from, next) => {
   next()
 })
 router.beforeEach((to, from, next) => {
+  if (to.name === 'login') {
+    if (store.state.auth.check) {
+      return router.push('/home')
+    }
+  }
+  next()
+})
+router.beforeEach((to, from, next) => {
   if (store.state.auth.check) {
     if (store.getters.isCoordinator && to.name.startsWith('admin')) {
       return router.push('/home')
