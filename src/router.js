@@ -26,7 +26,7 @@ export default new VueRouter({
       component: load('Index'),
       children: [
         // HOME
-        { path: '', component: load('Home'), meta: { auth: true } },
+        { path: '', component: load('Home'), name: 'home', meta: { auth: true } },
         { path: '/home', component: load('Home'), name: 'home', meta: { auth: true } },
         { path: '/my-account', component: load('modules/Users/MyAccount'), name: 'my-account', meta: { auth: true } },
         // EVENT

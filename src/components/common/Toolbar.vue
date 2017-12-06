@@ -10,7 +10,7 @@
               iComand
                 <div slot="subtitle">Sistema para Gerenciamento de equipes de segurança de eventos</div>
             </q-toolbar-title>
-            <template v-if=" this.$route.name != 'index' " >
+            <template v-if=" this.$route.name != 'index' && this.$route.name != 'home'" >
                 <q-btn class="within-iframe-hide" flat @click="back()" style="margin-right: 5px">
                     <q-icon name="keyboard_arrow_left" />
                     Voltar
