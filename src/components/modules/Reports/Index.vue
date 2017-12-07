@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="$refs.basicModal.open()">
+        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="$refs.employeeModal.open()">
           <q-card-title>
             Relatório de Funcionários
             <span slot="subtitle">Emitir relatório de funcionários</span>
@@ -40,15 +40,10 @@
         </q-card>
       </div>
     </div>
-    <q-modal position="bottom" :content-css="{minWindth: '800px', minHeight: '100px', padding: '20px'}">
-      <my-employee></my-employee>
-      <q-btn @click="teste"></q-btn>
-      <q-btn class="primary" @click="open = false" label="Close"/>
-    </q-modal>
-    <q-modal position="bottom" ref="basicModal" :content-css="{minWindth: '800px', minHeight: '100px', padding: '20px'}">
+    <q-modal position="bottom" ref="employeeModal" :content-css="{minWindth: '800px', minHeight: '100px', padding: '20px'}">
       <my-employee></my-employee>
       <hr>
-      <q-btn flat @click="$refs.basicModal.close()">Fechar</q-btn>
+      <q-btn @click="$refs.employeeModal.close()">Fechar</q-btn>
     </q-modal>
     </div>
 </template>
