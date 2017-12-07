@@ -41,7 +41,18 @@ export default new VueRouter({
         { path: '/clients/:id', component: load('modules/Clients/View'), name: 'clients.view' },
         { path: '/clients/:id/edit', component: load('modules/Clients/Edit'), name: 'clients.edit', meta: { auth: true } },
         // REPORTS
-        { path: '/reports', component: load('modules/Reports/Index'), name: 'reports.index', meta: { auth: true } },
+        {
+          path: '/reports',
+          component: load('modules/Reports/Index'),
+          name: 'reports.index',
+          meta: { auth: true }
+        },
+        {
+          path: '/teste',
+          component: load('modules/Reports/Teste'),
+          name: 'reports.teste',
+          meta: { auth: true }
+        },
         // EMPLOYEE
         { path: '/employees', component: load('modules/Employees/List'), name: 'employees.list', meta: { auth: true } },
         { path: '/employees/create', component: load('modules/Employees/Create'), name: 'employees.create', meta: { auth: true } },

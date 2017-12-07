@@ -21,7 +21,6 @@ import VueResource from 'vue-resource'
 import JwtToken from './services/jwt-token'
 import Vuelidate from 'vuelidate'
 import './services/imports'
-
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
 Vue.use(Vuex)
