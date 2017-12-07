@@ -10,10 +10,11 @@
     >
         <Toolbar slot="header"></Toolbar>
         <q-tabs slot="navigation" color="dark" v-if="!indexStore.hideTabs">
-            <q-route-tab slot="title" icon="home" to="/" label="Home" />
+            <q-route-tab slot="title" icon="home" to="/home" label="Home" />
             <q-route-tab slot="title" icon="ion-calendar" to="/events" label="Eventos" />
             <q-route-tab slot="title" icon="ion-ios-people" to="/clients" label="Clientes" />
             <q-route-tab slot="title" icon="supervisor_account" to="/employees" label="Funcionários" />
+          <q-route-tab slot="title" icon="assignment" to="/reports" label="Relatórios" />
             <template v-if="isAdministrator">
                 <q-route-tab slot="title" icon="perm_identity" to="/admin/users" label="Usuários" />
             </template>

@@ -26,7 +26,7 @@ export default new VueRouter({
       component: load('Index'),
       children: [
         // HOME
-        { path: '', component: load('Home'), name: 'home', meta: { auth: true } },
+        { path: '/', component: load('Home'), name: 'dashboard', meta: { auth: true } },
         { path: '/home', component: load('Home'), name: 'home', meta: { auth: true } },
         { path: '/my-account', component: load('modules/Users/MyAccount'), name: 'my-account', meta: { auth: true } },
         // EVENT
@@ -40,6 +40,8 @@ export default new VueRouter({
         { path: '/clients/create', component: load('modules/Clients/Create'), name: 'clients.create', meta: { auth: true } },
         { path: '/clients/:id', component: load('modules/Clients/View'), name: 'clients.view' },
         { path: '/clients/:id/edit', component: load('modules/Clients/Edit'), name: 'clients.edit', meta: { auth: true } },
+        // REPORTS
+        { path: '/reports', component: load('modules/Reports/Index'), name: 'reports.index', meta: { auth: true } },
         // EMPLOYEE
         { path: '/employees', component: load('modules/Employees/List'), name: 'employees.list', meta: { auth: true } },
         { path: '/employees/create', component: load('modules/Employees/Create'), name: 'employees.create', meta: { auth: true } },

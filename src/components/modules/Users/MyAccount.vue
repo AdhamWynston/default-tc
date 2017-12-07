@@ -172,7 +172,7 @@
           form: {
             pass: {
               type: 'password',
-              label: 'Password',
+              label: 'Senha',
               model: ''
             }
           },
