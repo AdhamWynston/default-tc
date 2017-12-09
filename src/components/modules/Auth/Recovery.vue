@@ -67,7 +67,14 @@
               Loading.hide()
               this.$router.push('/login')
               Toast.create.positive('Enviamos um link de recuperação para o e-mail')
-            }, 3000)
+            }, 1000)
+          })
+          .catch((response) => {
+            setTimeout(() => {
+              Loading.hide()
+              this.$router.push('/login')
+              Toast.create.positive('Enviamos um link de recuperação para o e-mail')
+            }, 1000)
           })
       }
     }

@@ -240,7 +240,7 @@
       submit () {
         if (this.$v.client.$invalid === false) {
           this.$store.dispatch('clientInsert', this.client)
-            .then(() => {
+            .then((response) => {
               Loading.show()
               this.$router.push('/clients')
               this.closeLoading()
@@ -249,7 +249,7 @@
                 icon: 'done'
               })
             })
-            .catch(() => {
+            .catch((response) => {
               Toast.create.negative({
                 html: 'Não pode ser cadastrado',
                 icon: 'cancel'

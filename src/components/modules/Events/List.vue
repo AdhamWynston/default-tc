@@ -23,12 +23,6 @@
                   <q-tooltip>Gerenciar Evento</q-tooltip>
                   <q-icon name="ion-gear-a"></q-icon>
                 </q-btn>
-              <q-btn color="negative" round @click="goReports(cell.row.id)" flat small>
-                <q-tooltip>
-                  Emitir Individual
-                </q-tooltip>
-                <q-icon name="picture_as_pdf"></q-icon>
-              </q-btn>
             </template>
             <template slot="col-startDate" slot-scope="cell">
                 <span>{{cell.row.startDate | moment }}</span>

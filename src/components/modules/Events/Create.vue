@@ -90,41 +90,38 @@
                                     Duração: {{ calculeDuration }}
                                 </div>
                               <div class="col-xs-12 col-sm-12">
-                              Funcionários disponíveis: {{ knob }}
+                              Funcionários disponíveis no período: {{ knob }}
                               </div>
                             </template>
-                            <!--<template v-if="this.form.endDate !== ''">-->
-                                <!--<div class="col-xs-12 col-sm-5">-->
-                                    <!--<q-field-->
-                                            <!--:error="$v.form.quantityEmployees.$error"-->
-                                            <!--:error-label="quantityEmployeesError">-->
-                                        <!--<q-input-->
-                                                <!--type="number"-->
-                                                <!--v-model="form.quantityEmployees"-->
-                                                <!--:min="0"-->
-                                                <!--float-label="Quantidade de Seguranças"-->
-                                                <!--class="no-margin"-->
-                                                <!--@blur="$v.form.quantityEmployees.$touch"-->
-                                        <!--/>-->
-                                    <!--</q-field>-->
-                                <!--</div>-->
-                            <!--</template>-->
                           <template v-if="this.form.startDate !== '' && this.form.endDate !== ''">
                               <q-field
-                                label="Selecione a quantidade"
+                                label="Selecione a quantidade de seguranças"
                                 :label-width="10"
                                 :error="$v.model.$error"
                                 error-label="Este campo é obrigatorio"
                               >
-                              <q-knob
-                                class="text-primary"
-                                v-model="model"
-                                :min="0"
-                                :step="2"
-                                :max="knob"
-                              >
-                                <q-icon class="on-left" name="ion-person-stalker" /> {{model}}
-                              </q-knob>
+                                <div class="row">
+                                  <div class="col-3">
+                                    <q-knob
+                                      class="text-primary"
+                                      v-model="model"
+                                      :min="0"
+                                      :step="2"
+                                      :max="knob"
+                                    >
+                                      <q-icon class="on-left" name="ion-person-stalker" /> {{model}}
+                                    </q-knob>
+                                  </div>
+                                  <div class="col-2">
+                                    <q-input
+                                      type="number"
+                                      v-model="model"
+                                      placeholder="Digite aqui"
+                                      :min="0"
+                                      class="no-margin"
+                                    />
+                                  </div>
+                                </div>
                               </q-field>
                           </template>
                             <div class="col-xs-12 col-sm-12">
@@ -291,9 +288,35 @@
         const date2 = moment(this.form.endDate)
         const differenceInMs = date2.diff(date1)
         const duration = moment.duration(differenceInMs)
+        const differenceInSeconds = duration.asSeconds()
         const differenceInHours = duration.asHours()
+        let hours = this.duas_casas(Math.round(differenceInSeconds / 3600))
+        let minutes = this.duas_casas(Math.floor((differenceInSeconds % 3600) / 60))
         this.duration = differenceInHours
-        return differenceInHours + ' Horas'
+        let time = ''
+        if (hours !== '00') {
+          if (hours === '01') {
+            time = hours + ' Hora'
+          }
+          else {
+            time = hours + ' Horas'
+          }
+        }
+        if (time !== '' && minutes !== '00') {
+          time += ' e '
+        }
+        if (minutes !== '00' || time !== '') {
+          if (minutes === '00') {
+            time += ''
+          }
+          else if (minutes === '01') {
+            time += minutes + ' Minuto'
+          }
+          else {
+            time += minutes + ' Minutos'
+          }
+        }
+        return time
       },
       cList () {
         return this.$store.state.clients.list
@@ -320,10 +343,17 @@
       parseClients () {
         return this.clients.map(client => {
           let document = this.documentFormat(client.document)
+          let msg
+          if (document.length === 18) {
+            msg = 'CNPJ: '
+          }
+          else {
+            msg = 'CPF: '
+          }
           return {
             allData: client,
             label: client.name,
-            sublabel: 'CPF: ' + document,
+            sublabel: msg + document,
             value: client.name
           }
         })
@@ -351,6 +381,12 @@
       }
     },
     methods: {
+      duas_casas (value) {
+        if (value < 9) {
+          value = '0' + value
+        }
+        return value
+      },
       closeLoading () {
         setTimeout(Loading.hide, 600)
       },

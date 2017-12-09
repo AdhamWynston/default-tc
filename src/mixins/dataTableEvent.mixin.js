@@ -78,7 +78,7 @@ export default {
         {
           label: 'Ações',
           field: 'actions',
-          width: '40px'
+          width: '30px'
         }
       ]
     }

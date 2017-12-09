@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="$refs.employeeModal.open()">
+        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="modalEmployee = true">
           <q-card-title>
             Relatório de Funcionários
             <span slot="subtitle">Emitir relatório de funcionários</span>
@@ -40,10 +40,10 @@
         </q-card>
       </div>
     </div>
-    <q-modal position="bottom" ref="employeeModal" :content-css="{minWindth: '800px', minHeight: '100px', padding: '20px'}">
-      <my-employee></my-employee>
+    <q-modal v-if="modalEmployee" v-model="modalEmployee" :content-css="{padding: '10px'}">
+      <my-employee v-if="modalEmployee"></my-employee>
       <hr>
-      <q-btn @click="$refs.employeeModal.close()">Fechar</q-btn>
+      <q-btn  v-if="modalEmployee" @click="modalEmployee = false">Fechar</q-btn>
     </q-modal>
     </div>
 </template>
@@ -53,7 +53,8 @@
   export default {
     data () {
       return {
-        open: false
+        open: false,
+        modalEmployee: false
       }
     },
     components: {

@@ -202,6 +202,7 @@
         this.$http.put('user/profile', data)
           .then((response) => {
             this.user = response.body
+            this.$store.commit('setUser', response.body)
             this.closeLoading()
             Toast.create.positive({
               html: 'Perfil Atualizado com sucesso!',

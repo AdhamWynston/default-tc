@@ -88,7 +88,6 @@
               })
             })
             .catch((response) => {
-              console.log(response)
               Toast.create.negative({
                 html: 'Não pode ser cadastrado',
                 icon: 'cancel'
@@ -112,7 +111,6 @@
         getEmployees () {
           this.$http.get('http://127.0.0.1:8000/api/manage/employee/list/' + this.$route.params.id)
             .then((response) => {
-              console.log(response)
               this.employeesList = response.data
             })
         }

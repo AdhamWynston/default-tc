@@ -9,6 +9,9 @@ export default {
     check: JwtToken.token !== null
   },
   mutations: {
+    setUser (state, user) {
+      state.user = user
+    },
     authenticated (state) {
       state.check = true
       state.user = JwtToken.payload.user

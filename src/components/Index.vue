@@ -69,6 +69,10 @@
           <q-item-side icon="assignment" />
           <q-item-main label="Relatórios" />
         </q-side-link>
+        <q-item link @click="logout()">
+          <q-item-side  color="red" icon="ion-android-exit" />
+          <q-item-main class="text-negative" label="Sair" />
+        </q-item>
       </q-list>
       </div>
             <router-view />
