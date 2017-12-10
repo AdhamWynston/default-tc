@@ -68,9 +68,39 @@
       this.getEmployees()
     },
     methods: {
+      all () {
+        Dialog.create({
+          title: 'Filtrar relatório de todos funcionários',
+          message: 'Selecione os filtros desejados para gerar o relatório.',
+          form: {
+            header1: {
+              type: 'heading',
+              label: 'Relatório com:'
+            },
+            group1: {
+              type: 'toggle',
+              model: ['personal'],
+              inline: false, // optional
+              items: [
+                {label: 'Dados Pessoais', value: 'personal'},
+                {label: 'Eventos Trabalhados', value: 'events'}
+              ]
+            }
+          },
+          buttons: [
+            'Cancel',
+            {
+              label: 'Ok',
+              handler: (data) => {
+                this.goReportEmployee(data)
+              }
+            }
+          ]
+        })
+      },
       individual () {
         Dialog.create({
-          title: 'Filtrar relatório de funcionários',
+          title: 'Filtrar relatório do funcionário',
           message: 'Selecione os filtros desejados para gerar o relatório.',
           form: {
             header1: {
@@ -120,7 +150,7 @@
         }
       },
       getEmployees () {
-        this.$http.get('http://127.0.0.1:8000/api/employees?where[status]=1')
+        this.$http.get('http://127.0.0.1:8000/api/employees')
           .then(response => {
             this.employees = response.data
           })

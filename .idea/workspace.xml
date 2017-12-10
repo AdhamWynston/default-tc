@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a285d10c-0040-4161-a61c-0a50f05d658b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/assets/L.png" afterPath="$PROJECT_DIR$/src/assets/L.png" />
-      <change beforePath="$PROJECT_DIR$/src/components/Index.vue" afterPath="$PROJECT_DIR$/src/components/Index.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Auth/Recovery.vue" afterPath="$PROJECT_DIR$/src/components/modules/Auth/Recovery.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Clients/Create.vue" afterPath="$PROJECT_DIR$/src/components/modules/Clients/Create.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Events/Create.vue" afterPath="$PROJECT_DIR$/src/components/modules/Events/Create.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Events/List.vue" afterPath="$PROJECT_DIR$/src/components/modules/Events/List.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" afterPath="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" />
       <change beforePath="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue" afterPath="$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue" />
-      <change beforePath="$PROJECT_DIR$/src/mixins/dataTableEvent.mixin.js" afterPath="$PROJECT_DIR$/src/mixins/dataTableEvent.mixin.js" />
-      <change beforePath="$PROJECT_DIR$/src/vuex/modules/auth.js" afterPath="$PROJECT_DIR$/src/vuex/modules/auth.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,22 +46,32 @@
       <file leaf-file-name="MyAccount.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3772">
+            <state relative-caret-position="3565">
               <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Employees.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Employees.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Employees.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="103" column="31" lean-forward="false" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+            <state relative-caret-position="3496">
+              <caret line="152" column="59" lean-forward="false" selection-start-line="152" selection-start-column="59" selection-end-line="152" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#q-radio#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#1150#1199#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="router.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/router.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -392,17 +391,18 @@
       <workItem from="1512797980996" duration="5905000" />
       <workItem from="1512836081947" duration="844000" />
       <workItem from="1512837285486" duration="482000" />
-      <workItem from="1512837830702" duration="14161000" />
+      <workItem from="1512837830702" duration="16712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124085000" />
+    <option name="totallyTimeSpent" value="126636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -659,14 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Auth/Logout.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -753,14 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3772">
-          <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Events/manage/CheckFrequencyEmployee.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-561">
@@ -787,14 +771,30 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3565">
+          <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Employees.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="103" column="31" lean-forward="false" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+        <state relative-caret-position="3496">
+          <caret line="152" column="59" lean-forward="false" selection-start-line="152" selection-start-column="59" selection-end-line="152" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#q-radio#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#1150#1199#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
