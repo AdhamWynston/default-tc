@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="modalEmployee = true">
+        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline  @click="goReportEmployeeRoute()">
           <q-card-title>
             Relatório de Funcionários
             <span slot="subtitle">Emitir relatório de funcionários</span>
@@ -40,11 +40,6 @@
         </q-card>
       </div>
     </div>
-    <q-modal v-if="modalEmployee" v-model="modalEmployee" :content-css="{padding: '10px'}">
-      <my-employee v-if="modalEmployee"></my-employee>
-      <hr>
-      <q-btn  v-if="modalEmployee" @click="modalEmployee = false">Fechar</q-btn>
-    </q-modal>
     </div>
 </template>
 <script>
@@ -62,6 +57,9 @@
       MyEmployee
     },
     methods: {
+      goReportEmployeeRoute () {
+        return this.$router.push('/reports/employees')
+      },
       teste () {
         console.log(this.open)
       }

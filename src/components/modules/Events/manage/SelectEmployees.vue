@@ -83,13 +83,13 @@
               console.log(response)
               this.$router.push('/events')
               Toast.create.positive({
-                html: 'Evento cadastrado com sucesso!',
+                html: 'Funcionários escalados com sucesso!',
                 icon: 'done'
               })
             })
             .catch((response) => {
               Toast.create.negative({
-                html: 'Não pode ser cadastrado',
+                html: 'Não foi possível concluir a escala!',
                 icon: 'cancel'
               })
             })

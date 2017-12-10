@@ -262,13 +262,13 @@ export default {
         .then(() => {
           this.$store.dispatch('employeesGet', this.employee.id)
           Toast.create.positive({
-            html: 'Status alterado com sucesso!',
+            html: 'Situação alterada com sucesso!',
             icon: 'done'
           })
         })
         .catch(() => {
           Toast.create.negative({
-            html: 'Não foi possível alterar o status',
+            html: 'Não foi possível alterar a situação',
             icon: 'cancel'
           })
         })

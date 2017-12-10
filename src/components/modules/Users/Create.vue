@@ -3,9 +3,11 @@
 
                 <q-card style="width: 700px">
                     <q-card-title>
+                      <div align="center">
                         <h4>
-                            Cadastrar Usuário
+                          <small>Cadastrar Usuário</small>
                         </h4>
+                      </div>
                     </q-card-title>
                     <q-card-main>
                         <div>

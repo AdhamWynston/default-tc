@@ -48,9 +48,15 @@ export default new VueRouter({
           meta: { auth: true }
         },
         {
-          path: '/teste',
-          component: load('modules/Reports/Teste'),
-          name: 'reports.teste',
+          path: '/reports/employees',
+          component: load('modules/Reports/Employees'),
+          name: 'reports.employees',
+          meta: { auth: true }
+        },
+        {
+          path: '/reports/clients',
+          component: load('modules/Reports/Clients'),
+          name: 'reports.clients',
           meta: { auth: true }
         },
         // EMPLOYEE

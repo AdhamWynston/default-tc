@@ -2,7 +2,7 @@
   <div class="layout-padding row justify-center">
       <div class="col-12">
         <div align="center">
-          <h4><small>Relatório de Funcionários</small></h4>
+          <h4><small>Relatório de Clientes</small></h4>
         </div>
       </div>
     <div style="width: 700px; max-width: 90vw;">
@@ -29,7 +29,7 @@
         <div class="row sm-gutter">
       <template v-if="radio1 === 'individual'">
         <div class="col-12">
-          <q-search v-model="terms" placeholder="Selecione o funcionário">
+          <q-search v-model="terms" placeholder="Selecione o cliente">
             <q-autocomplete
               v-model="terms"
               @search="search"
@@ -37,12 +37,12 @@
               @selected="selected"
             />
             <q-tooltip>
-              Digite o nome do funcionário
+              Digite o nome do cliente
             </q-tooltip>
           </q-search>
         </div>
         <div v-if="!$v.terms.$invalid" class="col-12">
-          <q-checkbox  v-model="events.check" left-label label="Eventos trabalhados" />
+          <q-checkbox  v-model="events.check" left-label label="Serviços Contratados" />
         </div>
         <div v-if="events.check === true" class="col-12">
           <div class="col-12">
@@ -182,8 +182,8 @@
           order: 'name'
         },
         ret: false,
-        selectedEmployee: { address: {} },
-        employees: []
+        selectedClient: { address: {} },
+        clients: []
       }
     },
     validations: {
@@ -201,7 +201,7 @@
           let data = {
             name: value
           }
-          this.$http.post('employee/exists', data)
+          this.$http.post('client/exists', data)
             .then((response) => {
               console.log(response.data)
               this.ret = response.data
@@ -211,7 +211,7 @@
       }
     },
     mounted () {
-      this.getEmployees()
+      this.getClients()
     },
     methods: {
       all () {
@@ -224,10 +224,10 @@
           status = 1
         }
         if (this.todos.status === 'two') {
-          url = 'http://127.0.0.1:8000/api/reports/all/employee?order=' + this.todos.order
+          url = 'http://127.0.0.1:8000/api/reports/all/client?order=' + this.todos.order
         }
         else {
-          url = 'http://127.0.0.1:8000/api/reports/all/employee?order=' + this.todos.order + '&status=' + status
+          url = 'http://127.0.0.1:8000/api/reports/all/client?order=' + this.todos.order + '&status=' + status
         }
         console.log(url)
         window.open(url, '_blank')
@@ -235,29 +235,29 @@
       individual () {
         let url
         if (this.events.filter === 'all' && this.events.check === true) {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
+          url = 'http://127.0.0.1:8000/api/reports/individual/client?name=' +
             this.terms + '&order=' + this.events.order
         }
         else if (this.events.filter === 'datetime' && this.events.check === true) {
           let startDate = moment(this.events.startDate).format('YYYY-MM-DD HH:mm:ss')
           let endDate = moment(this.events.endDate).format('YYYY-MM-DD HH:mm:ss')
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
+          url = 'http://127.0.0.1:8000/api/reports/individual/client?name=' +
             this.terms + '&order=' + this.events.order + '&startDate=' + startDate + '&endDate=' + endDate
         }
         else {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' + this.terms
+          url = 'http://127.0.0.1:8000/api/reports/individual/client?name=' + this.terms
         }
         console.log(url)
         console.log(this.terms)
         window.open(url, '_blank')
       },
-      goReportEmployee (value) {
+      goReportClient (value) {
         let data = {
           name: this.terms,
           personal: value.group1[0],
           events: value.group1[1]
         }
-        let url = 'http://127.0.0.1:8000/api/reports/employee?name=' +
+        let url = 'http://127.0.0.1:8000/api/reports/client?name=' +
           data.name + '&' + 'personal=' + data.personal + '&events=' + data.events
         window.open(url, '_blank')
       },
@@ -272,20 +272,20 @@
           return CNPJ.format(value)
         }
       },
-      getEmployees () {
-        this.$http.get('http://127.0.0.1:8000/api/employees')
+      getClients () {
+        this.$http.get('http://127.0.0.1:8000/api/clients')
           .then(response => {
-            this.employees = response.data
+            this.clients = response.data
           })
       },
       search (terms, done) {
         setTimeout(() => {
-          done(filter(terms, {field: 'value', list: this.parseEmployees}))
+          done(filter(terms, {field: 'value', list: this.parseClients}))
         }, 500)
       },
-      selected (employee) {
-        console.log(employee)
-        this.selectedEmployee = employee.allData
+      selected (client) {
+        console.log(client)
+        this.selectedClient = client.allData
       }
     },
     computed: {
@@ -308,14 +308,14 @@
           return null
         }
       },
-      parseEmployees () {
-        return this.employees.map(employee => {
-          let document = this.documentFormat(employee.document)
+      parseClients () {
+        return this.clients.map(client => {
+          let document = this.documentFormat(client.document)
           return {
-            allData: employee,
-            label: employee.name,
+            allData: client,
+            label: client.name,
             sublabel: 'CPF: ' + document,
-            value: employee.name
+            value: client.name
           }
         })
       }
