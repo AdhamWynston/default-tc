@@ -11,7 +11,7 @@
       </q-card>
     </div>
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline>
+        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline @click="goReportClientRoute()">
           <q-card-title>
             Relatório de Clientes
             <span slot="subtitle">Emitir relatório de clientes</span>
@@ -57,6 +57,9 @@
       MyEmployee
     },
     methods: {
+      goReportClientRoute () {
+        return this.$router.push('/reports/clients')
+      },
       goReportEmployeeRoute () {
         return this.$router.push('/reports/employees')
       },

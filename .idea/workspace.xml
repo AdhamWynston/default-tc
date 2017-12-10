@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a285d10c-0040-4161-a61c-0a50f05d658b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Clients.vue" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Clients/View.vue" afterPath="$PROJECT_DIR$/src/components/modules/Clients/View.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Employees/View.vue" afterPath="$PROJECT_DIR$/src/components/modules/Employees/View.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" afterPath="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Events.vue" />
       <change beforePath="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" afterPath="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
-      <change beforePath="$PROJECT_DIR$/src/components/modules/Users/Create.vue" afterPath="$PROJECT_DIR$/src/components/modules/Users/Create.vue" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" afterPath="$PROJECT_DIR$/src/router.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Clients.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Clients.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Clients.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
@@ -102,10 +95,20 @@
         <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="205">
-              <caret line="60" column="52" lean-forward="false" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+              <caret line="60" column="50" lean-forward="false" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Events.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Events.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -229,7 +232,6 @@
         <option value="$PROJECT_DIR$/src/components/modules/Users/MyAccount.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/Create.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/List.vue" />
-        <option value="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Users/Create.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Clients/View.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" />
@@ -237,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/components/modules/Reports/Clients.vue" />
+        <option value="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
       </list>
     </option>
   </component>
@@ -416,12 +419,12 @@
       <workItem from="1512797980996" duration="5905000" />
       <workItem from="1512836081947" duration="844000" />
       <workItem from="1512837285486" duration="482000" />
-      <workItem from="1512837830702" duration="31462000" />
+      <workItem from="1512837830702" duration="32726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141386000" />
+    <option name="totallyTimeSpent" value="142650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -462,13 +465,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Users/Edit.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2392">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="112" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/common/BreadCrumb.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -732,16 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="60" column="52" lean-forward="false" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Clients/Create.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-460">
@@ -836,6 +822,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="27" selection-end-line="203" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="60" column="50" lean-forward="false" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Events.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
