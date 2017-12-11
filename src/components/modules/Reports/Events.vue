@@ -74,8 +74,21 @@
       </template>
 
         <template v-if="radio1 === 'all'">
-          <template v-if="this.service.filter === ''">
-            <div class="col-xs-12 col-sm-6">
+          <div class="col-12">
+            <div>
+              Ordenar por:
+            </div>
+            <div class="col-xs-12 col-sm-2">
+            <q-radio v-model="todos.order" val="name" label="Nome" />
+            </div>
+            <div class="col-xs-12 col-sm-2">
+            <q-radio v-model="todos.order" val="created_at" label="Data de realização"/>
+            </div>
+          </div>
+          <div class="col-12">
+            <q-toggle v-model="checke1" label="Filtrar por período" />
+          </div>
+            <div class="col-xs-12 col-sm-6" v-if="this.checke1 === true">
               <q-field
                 :error="$v.service.startDate.$error"
                 :error-label="startError">
@@ -96,7 +109,7 @@
                 />
               </q-field>
             </div>
-            <div v-if="this.service.startDate !== ''" class="col-xs-12 col-sm-6">
+            <div v-if="this.checke1 === true" class="col-xs-12 col-sm-6">
               <q-field
                 :error="$v.service.endDate.$error"
                 :error-label="endError">
@@ -117,21 +130,7 @@
                 />
               </q-field>
             </div>
-          </template>
-          <div class="col-12">
-            <div>
-              Ordenar por:
-            </div>
-            <div class="col-xs-12 col-sm-2">
-            <q-radio v-model="todos.order" val="name" label="Nome" />
-            </div>
-            <div class="col-xs-12 col-sm-2">
-            <q-radio v-model="todos.order" val="created_at" label="Data de cadastro"/>
-            </div>
-          </div>
-        </template>
-          <template v-if="radio1 === 'all'">
-              <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6">
                 <q-dialog-select
                   stack-label="Filtrar situações"
                   title="Emitir relatório de eventos"
@@ -171,6 +170,7 @@
         select: 0,
         radio1: 'individual',
         terms: '',
+        checke1: false,
         checkInputTerms: false,
         checkSelect: false,
         todos: {
@@ -219,12 +219,12 @@
       QDialogSelect
     },
     validations: {
-      events: {
+      service: {
         startDate: {},
         endDate: {
           required,
           isAfter (date) {
-            return moment(date).isAfter(this.events.startDate)
+            return moment(date).isAfter(this.service.startDate)
           }
         }
       },
@@ -248,19 +248,7 @@
     methods: {
       all () {
         let url
-        let status
-        if (this.todos.status === 'zero') {
-          status = 0
-        }
-        else if (this.todos.status === 'one') {
-          status = 1
-        }
-        if (this.todos.status === 'two') {
-          url = 'http://127.0.0.1:8000/api/reports/all/event?order=' + this.todos.order
-        }
-        else {
-          url = 'http://127.0.0.1:8000/api/reports/all/event?order=' + this.todos.order + '&status=' + status
-        }
+
         console.log(url)
         window.open(url, '_blank')
       },
