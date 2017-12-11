@@ -14,6 +14,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-runtime": "^6.25.0",
+    "chart.js": "^2.7.1",
     "cpf_cnpj": "^0.2.0",
     "fullcalendar": "^3.7.0",
     "less-loader": "^4.0.5",
@@ -22,6 +23,7 @@
     "quasar-framework": "^0.14.4",
     "raphael": "^2.2.7",
     "vue": "^2.5.0",
+    "vue-chartjs": "^3.0.2",
     "vue-event-calendar": "^1.5.1",
     "vue-fullcalendar": "^1.0.9",
     "vue-morris": "0.0.8",

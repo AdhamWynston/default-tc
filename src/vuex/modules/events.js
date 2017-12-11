@@ -5,7 +5,8 @@ export default {
   state: {
     list: [],
     employeeCheckList: [],
-    one: {}
+    one: {},
+    graph: []
   },
   mutations: {
     update (state, config) {
@@ -27,6 +28,16 @@ export default {
         .then((res) => {
           context.commit('update', {
             state: 'one',
+            data: res.data
+          })
+        })
+    },
+    graphGet (context) {
+      return Vue.http.get('http://127.0.0.1:8000/api/testeando')
+        .then((res) => {
+          console.log(res.data)
+          context.commit('update', {
+            state: 'graph',
             data: res.data
           })
         })
