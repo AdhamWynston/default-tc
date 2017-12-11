@@ -35,7 +35,6 @@ export default {
     graphGet (context) {
       return Vue.http.get('http://127.0.0.1:8000/api/testeando')
         .then((res) => {
-          console.log(res.data)
           context.commit('update', {
             state: 'graph',
             data: res.data

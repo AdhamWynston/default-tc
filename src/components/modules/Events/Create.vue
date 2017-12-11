@@ -215,7 +215,7 @@
                         <q-btn color="primary" :disabled="$v.model.$invalid" @click="$refs.stepper.next()"> Avançar </q-btn>
                     </template>
                     <template v-if="step === 'third'">
-                        <q-btn color="primary" :disabled="$v.form.$invalid" @click="submit" >Cadastrar</q-btn>
+                        <q-btn color="positive" :disabled="$v.form.$invalid" @click="submit" >Cadastrar</q-btn>
                     </template>
                 </q-stepper-navigation>
             </q-stepper>

@@ -203,7 +203,7 @@
             Voltar
           </q-btn>
           <template v-if="step === 'second'">
-            <q-btn color="primary" :disabled="$v.client.$invalid" @click="submit"> Cadastrar </q-btn>
+            <q-btn color="positive" :disabled="$v.client.$invalid" @click="submit"> Cadastrar </q-btn>
           </template>
           <template v-else>
             <q-btn color="primary" @click="$refs.stepper.next()" >Avançar</q-btn>
@@ -231,6 +231,12 @@
     QStep,
     QStepperNavigation
   } from 'quasar'
+  function show (options) {
+    Loading.show(options)
+    setTimeout(() => {
+      Loading.hide()
+    }, 3000)
+  }
   export default {
     mixins: [statesMixin, formatMixin, validationClientMixin],
     methods: {
@@ -241,9 +247,8 @@
         if (this.$v.client.$invalid === false) {
           this.$store.dispatch('clientInsert', this.client)
             .then((response) => {
-              Loading.show()
+              show()
               this.$router.push('/clients')
-              this.closeLoading()
               Toast.create.positive({
                 html: 'Cliente cadastrado com sucesso',
                 icon: 'done'

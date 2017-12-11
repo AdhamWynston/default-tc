@@ -93,12 +93,12 @@
     },
     mixins: [authMixin],
     created () {
+      this.fillData()
+      this.$store.dispatch('graphGet')
     },
     mounted () {
-      this.$store.dispatch('graphGet')
       this.calcule()
       this.escalaCalcule()
-      this.fillData()
     },
     components: {
       LineChart

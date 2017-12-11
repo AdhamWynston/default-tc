@@ -183,7 +183,7 @@
           Voltar
         </q-btn>
         <template v-if="step === 'second'">
-          <q-btn color="primary" :disabled="$v.employee.$invalid" @click="submit"> Cadastrar </q-btn>
+          <q-btn color="positive" :disabled="$v.employee.$invalid" @click="submit"> Cadastrar </q-btn>
         </template>
         <template v-else>
           <q-btn color="primary"  @click="$refs.stepper.next()" >Avançar</q-btn>
@@ -225,13 +225,13 @@
               this.$router.push('/employees')
               this.closeLoading()
               Toast.create.positive({
-                html: 'Cadastrado com sucesso',
+                html: 'Funcionário cadastrado com sucesso!',
                 icon: 'done'
               })
             })
             .catch(() => {
               Toast.create.negative({
-                html: 'Não pode ser cadastrado',
+                html: 'Não foi possível realizar o cadastro!',
                 icon: 'cancel'
               })
             })

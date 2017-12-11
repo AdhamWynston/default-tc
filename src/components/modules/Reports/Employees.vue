@@ -63,7 +63,7 @@
           <q-radio v-model="events.order" val="name" label="Nome" />
           </div>
           <div class="col-xs-12 col-sm-2">
-          <q-radio v-model="events.order" val="date" label="Data de realização" />
+          <q-radio v-model="events.order" val="startDate" label="Data de realização" />
           </div>
         </div>
         <template v-if="this.events.filter === 'datetime'">
@@ -234,21 +234,22 @@
       },
       individual () {
         let url
-        if (this.events.filter === 'all' && this.events.check === true) {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
-            this.terms + '&order=' + this.events.order
-        }
-        else if (this.events.filter === 'datetime' && this.events.check === true) {
-          let startDate = moment(this.events.startDate).format('YYYY-MM-DD HH:mm:ss')
-          let endDate = moment(this.events.endDate).format('YYYY-MM-DD HH:mm:ss')
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
-            this.terms + '&order=' + this.events.order + '&startDate=' + startDate + '&endDate=' + endDate
+        if (this.events.check === true) {
+          if (this.events.filter === 'all') {
+            url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
+              this.terms + '&order=' + this.events.order
+          }
+          else if (this.events.filter === 'datetime') {
+            let startDate = moment(this.events.startDate).format('YYYY-MM-DD HH:mm:ss')
+            let endDate = moment(this.events.endDate).format('YYYY-MM-DD HH:mm:ss')
+            url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
+              this.terms + '&order=' + this.events.order + '&startDate=' + startDate + '&endDate=' + endDate
+          }
         }
         else {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' + this.terms
+          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' + this.terms + '&type=simple'
         }
         console.log(url)
-        console.log(this.terms)
         window.open(url, '_blank')
       },
       goReportEmployee (value) {

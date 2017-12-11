@@ -231,6 +231,12 @@
     Dialog
   } from 'quasar'
   import moment from 'moment'
+  function show (options) {
+    Loading.show(options)
+    setTimeout(() => {
+      Loading.hide()
+    }, 3000)
+  }
   export default {
     mixins: [statesMixin],
     data () {
@@ -416,9 +422,8 @@
         if (this.$v.form.$invalid === false) {
           this.$store.dispatch('eventUpdate', {id: this.$route.params.id, data: data})
             .then((response) => {
-              Loading.show()
+              show()
               this.$router.push('/events')
-              this.closeLoading()
               Toast.create.positive({
                 html: 'Evento editado com sucesso!',
                 icon: 'done'
