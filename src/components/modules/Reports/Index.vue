@@ -31,7 +31,7 @@
         </q-card>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline >
+        <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline @click="goReportUser()">
           <q-card-title>
             Relatório de Usuários
             <span slot="subtitle">Emitir relatório de usuários</span>
@@ -43,7 +43,7 @@
     </div>
 </template>
 <script>
-  import { QModal } from 'quasar'
+  import { QModal, Dialog } from 'quasar'
   import MyEmployee from './Employees.vue'
   export default {
     data () {
@@ -62,6 +62,35 @@
       },
       goReportEventRoute () {
         return this.$router.push('/reports/events')
+      },
+      goReportUser () {
+        Dialog.create({
+          title: 'Filtrar relatório de usuários',
+          message: 'Selecione a situação dos usuários',
+          form: {
+            option: {
+              type: 'radio',
+              model: 2,
+              inline: false,
+              items: [
+                {label: 'Todos', value: 2},
+                {label: 'Ativados', value: 1},
+                {label: 'Desativados', value: 0}
+              ]
+            }
+          },
+          buttons: [
+            'Cancelar',
+            {
+              color: 'positive',
+              label: 'Gerar',
+              handler: (data) => {
+                let url = 'http://127.0.0.1:8000/api/reports/all/user?status=' + data.option
+                window.open(url, '_blank')
+              }
+            }
+          ]
+        })
       },
       goReportEmployeeRoute () {
         return this.$router.push('/reports/employees')

@@ -17,7 +17,7 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="Create.vue" pinned="false" current-in-tab="true">
+            <file leaf-file-name="Create.vue" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/components/modules/Events/Create.vue">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="23">
@@ -25,6 +25,18 @@
                     <folding>
                       <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                       <element signature="e#12463#12522#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Events.vue" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Events.vue">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="428">
+                    <caret line="259" column="8" lean-forward="false" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="34" />
+                    <folding>
+                      <element signature="e#5852#5908#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -73,26 +85,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+            <state relative-caret-position="345">
+              <caret line="87" column="64" lean-forward="false" selection-start-line="87" selection-start-column="64" selection-end-line="87" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#1857#1896#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Events.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Events.vue">
+      <file leaf-file-name="Employees.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Employees.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="50" column="85" lean-forward="false" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
-              <folding>
-                <element signature="e#5852#5908#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="145" column="82" lean-forward="false" selection-start-line="145" selection-start-column="82" selection-end-line="145" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Clients.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Clients.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="150" column="38" lean-forward="false" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -203,10 +224,7 @@
         <option value="$PROJECT_DIR$/src/components/modules/Clients/View.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/manage/SelectEmployees.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Employees/View.vue" />
-        <option value="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" />
         <option value="$PROJECT_DIR$/src/router.js" />
-        <option value="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
-        <option value="$PROJECT_DIR$/src/components/modules/Reports/Clients.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Auth/Recovery.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Auth/Login.vue" />
         <option value="$PROJECT_DIR$/src/vuex/modules/manageEvents.js" />
@@ -214,7 +232,10 @@
         <option value="$PROJECT_DIR$/src/components/modules/Events/manage/CheckFrequencyEmployeeRealized.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/Manage.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Events/Edit.vue" />
+        <option value="$PROJECT_DIR$/src/components/modules/Reports/Employees.vue" />
+        <option value="$PROJECT_DIR$/src/components/modules/Reports/Clients.vue" />
         <option value="$PROJECT_DIR$/src/components/modules/Reports/Events.vue" />
+        <option value="$PROJECT_DIR$/src/components/modules/Reports/Index.vue" />
       </list>
     </option>
   </component>
@@ -295,7 +316,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Events" type="462c0819:PsiDirectoryNode" />
+              <item name="Reports" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -395,12 +416,12 @@
       <workItem from="1512836081947" duration="844000" />
       <workItem from="1512837285486" duration="482000" />
       <workItem from="1512837830702" duration="50136000" />
-      <workItem from="1512954762121" duration="6120000" />
+      <workItem from="1512954762121" duration="8277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166180000" />
+    <option name="totallyTimeSpent" value="168337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -700,35 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Clients.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Employees.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="123" column="58" lean-forward="false" selection-start-line="123" selection-start-column="48" selection-end-line="123" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#6052#6089#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Auth/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -827,12 +819,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Employees.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="145" column="82" lean-forward="false" selection-start-line="145" selection-start-column="82" selection-end-line="145" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Clients.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="150" column="38" lean-forward="false" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Events.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="50" column="85" lean-forward="false" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
+        <state relative-caret-position="428">
+          <caret line="259" column="8" lean-forward="false" selection-start-line="259" selection-start-column="8" selection-end-line="259" selection-end-column="34" />
           <folding>
             <element signature="e#5852#5908#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modules/Reports/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="87" column="64" lean-forward="false" selection-start-line="87" selection-start-column="64" selection-end-line="87" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#q-card#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1857#1896#0" expanded="true" />
           </folding>
         </state>
       </provider>

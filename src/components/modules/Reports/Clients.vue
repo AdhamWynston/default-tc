@@ -143,12 +143,12 @@
           </template>
           <div class="col-12">
             <q-stepper-navigation>
-              <q-btn color="primary" flat @click="$refs.stepper.previous()">Back</q-btn>
+              <q-btn color="primary" flat @click="$refs.stepper.previous()">Voltar</q-btn>
               <template v-if="radio1 === 'individual'">
-                <q-btn color="primary" :disabled="$v.terms.$invalid" @click="individual()">Gerar</q-btn>
+                <q-btn color="positive" :disabled="$v.terms.$invalid" @click="individual()">Gerar</q-btn>
               </template>
               <template v-if="radio1 === 'all'">
-                <q-btn color="primary" @click="all()">Gerar </q-btn>
+                <q-btn color="positive" @click="all()">Gerar </q-btn>
               </template>
             </q-stepper-navigation>
           </div>

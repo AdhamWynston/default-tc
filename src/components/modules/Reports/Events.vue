@@ -245,12 +245,10 @@
           url = 'http://127.0.0.1:8000/api/reports/all/event?order=' +
             this.todos.order + '&status=' + this.select
         }
-        console.log(url)
         window.open(url, '_blank')
       },
       individual () {
         let url
-        console.log(this.selectedEvent)
         if (this.service.check === true) {
           url = 'http://127.0.0.1:8000/api/reports/individual/event?id=' +
             this.selectedEvent.id + '&type=' + this.service.filter
