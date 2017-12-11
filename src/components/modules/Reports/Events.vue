@@ -48,7 +48,7 @@
           <div class="col-12" v-if="(this.selectedEvent.status === 4 || this.selectedEvent.status === 3) && this.selectedEvent.status !== 5">
             <q-checkbox  v-model="service.check" left-label label="Informações sobre sua realização" />
           </div>
-          <div class="col-12" v-if="this.selectedEvent.status === 4 && this.service.check === true">
+          <div class="col-12" v-if="selectedEvent.status >= 2 && selectedEvent.status <= 4 && service.check === true">
             <div class="col-12">
               Possuir:
             </div>
@@ -59,20 +59,8 @@
               <q-radio v-model="service.filter" val="fullScale" label="Escala e frequência"/>
             </div>
           </div>
-          <!--<div class="col-12" v-if="(this.selectedEvent.status === 4 || this.selectedEvent.status === 3) && this.service.check === true">-->
-            <!--<div class="col-xs-12 col-sm-2">-->
-              <!--Ordernar os funcionários por:-->
-            <!--</div>-->
-            <!--<div class="col-xs-12 col-sm-2">-->
-              <!--<q-radio v-model="service.order" val="name" label="Nome" />-->
-            <!--</div>-->
-            <!--<div class="col-xs-12 col-sm-2">-->
-              <!--<q-radio v-model="service.order" val="date" label="Horário de Frequência" />-->
-            <!--</div>-->
-          <!--</div>-->
         </template>
       </template>
-
         <template v-if="radio1 === 'all'">
           <div class="col-12">
             <div>
@@ -82,7 +70,7 @@
             <q-radio v-model="todos.order" val="name" label="Nome" />
             </div>
             <div class="col-xs-12 col-sm-2">
-            <q-radio v-model="todos.order" val="created_at" label="Data de realização"/>
+            <q-radio v-model="todos.order" val="startDate" label="Data de realização"/>
             </div>
           </div>
           <div class="col-12">
@@ -95,7 +83,7 @@
                 <q-datetime
                   id="started"
                   v-model="service.startDate"
-                  stack-label="Início do Evento"
+                  stack-label="Início"
                   type="datetime"
                   format24h
                   format="DD/MM/YYYY HH:mm"
@@ -118,7 +106,7 @@
                   format24h
                   v-model="service.endDate"
                   @blur="$v.service.endDate.$touch"
-                  stack-label="Termíno do Evento"
+                  stack-label="Termíno"
                   type="datetime"
                   format="DD/MM/YYYY HH:mm"
                   ok-label="OK"
@@ -141,12 +129,12 @@
           </template>
           <div class="col-12">
             <q-stepper-navigation>
-              <q-btn color="primary" flat @click="$refs.stepper.previous()">Back</q-btn>
+              <q-btn color="primary" flat @click="$refs.stepper.previous()">Voltar</q-btn>
               <template v-if="radio1 === 'individual'">
-                <q-btn color="primary" :disabled="checkTerms" @click="individual()">Gerar</q-btn>
+                <q-btn color="positive" :disabled="checkTerms" @click="individual()">Gerar</q-btn>
               </template>
               <template v-if="radio1 === 'all'">
-                <q-btn color="primary" @click="all()">Gerar </q-btn>
+                <q-btn color="positive" :disabled="checkAll" @click="all()">Gerar </q-btn>
               </template>
             </q-stepper-navigation>
           </div>
@@ -222,7 +210,6 @@
       service: {
         startDate: {},
         endDate: {
-          required,
           isAfter (date) {
             return moment(date).isAfter(this.service.startDate)
           }
@@ -248,12 +235,22 @@
     methods: {
       all () {
         let url
-
+        let startDate = moment(this.service.startDate).format('YYYY-MM-DD HH:mm:ss')
+        let endDate = moment(this.service.endDate).format('YYYY-MM-DD HH:mm:ss')
+        if (this.$v.service.$invalid !== true && this.checke1 === true) {
+          url = 'http://127.0.0.1:8000/api/reports/all/event?startDate=' +
+            startDate + '&endDate=' + endDate + '&order=' + this.todos.order + '&status=' + this.select
+        }
+        else {
+          url = 'http://127.0.0.1:8000/api/reports/all/event?order=' +
+            this.todos.order + '&status=' + this.select
+        }
         console.log(url)
         window.open(url, '_blank')
       },
       individual () {
         let url
+        console.log(this.selectedEvent)
         if (this.service.check === true) {
           url = 'http://127.0.0.1:8000/api/reports/individual/event?id=' +
             this.selectedEvent.id + '&type=' + this.service.filter
@@ -262,7 +259,7 @@
           url = 'http://127.0.0.1:8000/api/reports/individual/event?id=' + this.selectedEvent.id
         }
         console.log(url)
-        // window.open(url, '_blank')
+        window.open(url, '_blank')
       },
       goReportEvent (value) {
         let data = {
@@ -309,6 +306,19 @@
       buttonAlterTerms () {
         if (this.terms !== '' && Object.keys(this.selectedEvent).length !== 0) {
           return true
+        }
+        else {
+          return false
+        }
+      },
+      checkAll () {
+        if (this.checke1 === true) {
+          if (this.service.startDate === '' || this.service.endDate === '') {
+            return true
+          }
+          else {
+            return false
+          }
         }
         else {
           return false
