@@ -2,7 +2,7 @@
   <div class="layout-padding">
     <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-6">
-      <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline>
+      <q-card style="width: 320px; height: 100px" color="secondary" class="cursor-pointer"inline @click="goReportEventRoute()">
         <q-card-title>
           Relatório de Eventos
           <span slot="subtitle">Emitir relatório de eventos</span>
@@ -59,6 +59,9 @@
     methods: {
       goReportClientRoute () {
         return this.$router.push('/reports/clients')
+      },
+      goReportEventRoute () {
+        return this.$router.push('/reports/events')
       },
       goReportEmployeeRoute () {
         return this.$router.push('/reports/employees')

@@ -1,7 +1,7 @@
 <template>
     <q-layout
             :right-breakpoint="1000"
-            :page-class="{'bg-grey-4': true}"
+            :page-class="{'bg-grey-13': true}"
             :left-class="{'dark': true}" >
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4 offset-md-4">
@@ -60,7 +60,7 @@ export default {
         .then(() => {
           this.closeLoading()
           this.$router.push('/home')
-          Toast.create.info('Seja bem vindo')
+          Toast.create.info('Seja bem vindo!')
         })
         .catch((response) => {
           this.closeLoading()

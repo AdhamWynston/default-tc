@@ -203,11 +203,18 @@
                         <q-btn color="primary" :disabled="$v.form.quantityEmployees.$invalid" @click="$refs.stepper.next()"> Avançar </q-btn>
                     </template>
                     <template v-if="step === 'third'">
-                        <q-btn color="primary" :disabled="$v.form.$invalid" @click="submit" >Cadastrar</q-btn>
+                        <q-btn color="positive" :disabled="$v.form.$invalid" @click="submit" >Salvar</q-btn>
                     </template>
                 </q-stepper-navigation>
             </q-stepper>
         </div>
+      <q-fixed-position corner="bottom-left" :offset="[16, 16]">
+        <q-btn  @click="goCancel()" round icon="ion-android-cancel" color="negative">
+          <q-tooltip>
+            Cancelar o evento
+          </q-tooltip>
+        </q-btn>
+      </q-fixed-position>
     </div>
 </template>
 
@@ -220,7 +227,8 @@
   import {
     Toast,
     filter,
-    Loading
+    Loading,
+    Dialog
   } from 'quasar'
   import moment from 'moment'
   export default {
@@ -325,6 +333,27 @@
       }
     },
     methods: {
+      goCancel () {
+        Dialog.create({
+          title: 'Realmente deseja cancelar este evento?',
+          message: 'Se selecionar a opção confimar, o evento será cancelado',
+          buttons: [
+            {
+              label: 'Cancelar',
+              handler () {
+                console.log('Disagreed...')
+              }
+            },
+            {
+              label: 'Confirmar',
+              color: 'negative',
+              handler: () => {
+                this.cancelEvent()
+              }
+            }
+          ]
+        })
+      },
       closeLoading () {
         setTimeout(Loading.hide, 600)
       },
@@ -347,6 +376,28 @@
         else {
           return CNPJ.format(value)
         }
+      },
+      cancelEvent () {
+        let data = {
+          status: 5
+        }
+        this.$store.dispatch('eventUpdate', {id: this.$route.params.id, data: data})
+          .then((response) => {
+            Loading.show()
+            this.$router.push('/events')
+            this.closeLoading()
+            Toast.create.positive({
+              html: 'Evento cancelado com sucesso!',
+              icon: 'done'
+            })
+          })
+          .catch((response) => {
+            console.log(response)
+            Toast.create.negative({
+              html: 'Não pode ser cancelado!',
+              icon: 'cancel'
+            })
+          })
       },
       submit () {
         let data = {
@@ -376,7 +427,7 @@
             .catch((response) => {
               console.log(response)
               Toast.create.negative({
-                html: 'Não pode ser editado',
+                html: 'Não pode ser editado!',
                 icon: 'cancel'
               })
             })

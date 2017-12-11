@@ -6,10 +6,10 @@
               :config="config"
             >
               <template slot="col-checkin" slot-scope="cell">
-                <q-toggle v-model="check_inArray" @change="alterCheckin(cell.row)" left-label color="primary" :val="cell.row.employee_id" />
+                <q-toggle disable v-model="check_inArray" @change="alterCheckin(cell.row)" left-label color="primary" :val="cell.row.employee_id" />
               </template>
               <template  slot="col-checkout" slot-scope="cell">
-                <q-toggle v-model="check_outArray" @change="alterCheckout(cell.row)" color="primary" :val="cell.row.employee_id" />
+                <q-toggle disable v-model="check_outArray" @change="alterCheckout(cell.row)" color="primary" :val="cell.row.employee_id" />
               </template>
             </q-data-table>
       </div>

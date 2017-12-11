@@ -1,33 +1,43 @@
 <template>
   <div class="layout-padding row justify-center">
-
-        <q-card color="light" style="width: 500px">
-          <q-card-title class="text-dark">
-            <div align="center">
-              <h4>Recuperar Senha</h4>
-            </div>
-          </q-card-title>
-          <q-card-main>
-            <div>
-              <q-field
+    <div class="col-12">
+      <div align="center">
+        <img src="./Logo.png" alt="Fjords" width="128" height="128">
+      </div>
+    </div>
+    <div class="col-12">
+      <br>
+      <div align="center">
+        <span class="light-paragraph"><big>Recuperar sua senha</big></span>
+      </div>
+    </div>
+    <div class="col-12 offset-md-8">
+      <q-card color="light" style="width: 400px">
+        <q-card-title class="text-dark">
+        </q-card-title>
+        <q-card-main>
+          <div>
+            <q-field
+              :error="$v.user.email.$error"
+              error-label="Por favor, preencha este campo"
+            >
+              <q-input
+                v-model="user.email"
+                @blur="$v.user.email.$touch"
+                @keyup.enter="submit"
                 :error="$v.user.email.$error"
-                error-label="Por favor, preencha este campo"
-              >
-                <q-input
-                  v-model="user.email"
-                  @blur="$v.user.email.$touch"
-                  @keyup.enter="submit"
-                  :error="$v.user.email.$error"
-                  float-label="E-mail"
-                />
-              </q-field>
-            </div>
-            <br>
-          </q-card-main>
-          <q-card-actions>
-            <q-btn class="full-width" :disable="$v.user.$invalid" color="primary" @click="submit">Enviar</q-btn>
-          </q-card-actions>
-        </q-card>
+                float-label="E-mail"
+              />
+            </q-field>
+          </div>
+          <br>
+        </q-card-main>
+        <q-card-actions>
+          <q-btn class="full-width" :disable="$v.user.$invalid" color="primary" @click="submit">Enviar</q-btn>
+        </q-card-actions>
+        <br>
+      </q-card>
+    </div>
       </div>
 </template>
 <script>

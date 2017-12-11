@@ -54,6 +54,12 @@ export default new VueRouter({
           meta: { auth: true }
         },
         {
+          path: '/reports/events',
+          component: load('modules/Reports/Events'),
+          name: 'reports.events',
+          meta: { auth: true }
+        },
+        {
           path: '/reports/clients',
           component: load('modules/Reports/Clients'),
           name: 'reports.clients',

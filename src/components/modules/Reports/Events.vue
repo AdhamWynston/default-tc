@@ -2,7 +2,7 @@
   <div class="layout-padding row justify-center">
       <div class="col-12">
         <div align="center">
-          <h4><small>Relatório de Funcionários</small></h4>
+          <h4><small>Relatório de Eventos</small></h4>
         </div>
       </div>
     <div style="width: 700px; max-width: 90vw;">
@@ -28,8 +28,8 @@
       <q-step name="second" title="Filtros do relatório">
         <div class="row sm-gutter">
       <template v-if="radio1 === 'individual'">
-        <div class="col-12">
-          <q-search v-model="terms" placeholder="Selecione o funcionário">
+        <div class="col-xs-8 col-sm-10">
+          <q-search v-model="terms" :disable="buttonAlterTerms" placeholder="Selecione o evento">
             <q-autocomplete
               v-model="terms"
               @search="search"
@@ -37,66 +37,74 @@
               @selected="selected"
             />
             <q-tooltip>
-              Digite o nome do funcionário
+              Digite o nome do evento
             </q-tooltip>
           </q-search>
         </div>
-        <div v-if="!$v.terms.$invalid" class="col-12">
-          <q-checkbox  v-model="events.check" left-label label="Eventos trabalhados" />
-        </div>
-        <div v-if="events.check === true" class="col-12">
-          <div class="col-12">
-            Filtrar eventos:
+          <div class="col-2" v-if="Object.keys(this.selectedEvent).length !== 0">
+            <q-btn small color="orange" @click="AlterTerms">Alterar</q-btn>
           </div>
-          <div class="col-xs-12 col-sm-2">
-            <q-radio v-model="events.filter" val="all" label="Todos" />
+        <template v-if="!$v.terms.$invalid">
+          <div class="col-12" v-if="(this.selectedEvent.status === 4 || this.selectedEvent.status === 3) && this.selectedEvent.status !== 5">
+            <q-checkbox  v-model="service.check" left-label label="Informações sobre sua realização" />
           </div>
-          <div class="col-xs-12 col-sm-2">
-            <q-radio v-model="events.filter" val="datetime" label="Período"/>
+          <div class="col-12" v-if="this.selectedEvent.status === 4 && this.service.check === true">
+            <div class="col-12">
+              Possuir:
+            </div>
+            <div class="col-xs-12 col-sm-2">
+              <q-radio v-model="service.filter" val="scale" label="Escala" />
+            </div>
+            <div class="col-xs-12 col-sm-2">
+              <q-radio v-model="service.filter" val="fullScale" label="Escala e frequência"/>
+            </div>
           </div>
-        </div>
-        <div v-if="events.check === true" class="col-12">
-          <div class="col-xs-12 col-sm-2">
-            Ordernar Eventos por:
-          </div>
-          <div class="col-xs-12 col-sm-2">
-          <q-radio v-model="events.order" val="name" label="Nome" />
-          </div>
-          <div class="col-xs-12 col-sm-2">
-          <q-radio v-model="events.order" val="date" label="Data de realização" />
-          </div>
-        </div>
-        <template v-if="this.events.filter === 'datetime'">
-          <div class="col-xs-12 col-sm-6">
-            <q-field
-              :error="$v.events.startDate.$error"
-              :error-label="startError">
-              <q-datetime
-                id="started"
-                v-model="events.startDate"
-                stack-label="Início do Evento"
-                type="datetime"
-                format24h
-                format="DD/MM/YYYY HH:mm"
-                ok-label="OK"
-                @blur="$v.events.startDate.$touch"
-                clear-label="Limpar"
-                cancel-label="Cancelar"
-                :day-names="['Dom','Seg', 'Ter','Qua','Qui','Sex','Sáb']"
-                :month-names="['Janeiro', 'Fevereiro','Março','Abril','Maio','Junho',
-                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']"
-              />
-            </q-field>
-          </div>
-            <div v-if="this.events.startDate !== ''" class="col-xs-12 col-sm-6">
+          <!--<div class="col-12" v-if="(this.selectedEvent.status === 4 || this.selectedEvent.status === 3) && this.service.check === true">-->
+            <!--<div class="col-xs-12 col-sm-2">-->
+              <!--Ordernar os funcionários por:-->
+            <!--</div>-->
+            <!--<div class="col-xs-12 col-sm-2">-->
+              <!--<q-radio v-model="service.order" val="name" label="Nome" />-->
+            <!--</div>-->
+            <!--<div class="col-xs-12 col-sm-2">-->
+              <!--<q-radio v-model="service.order" val="date" label="Horário de Frequência" />-->
+            <!--</div>-->
+          <!--</div>-->
+        </template>
+      </template>
+
+        <template v-if="radio1 === 'all'">
+          <template v-if="this.service.filter === ''">
+            <div class="col-xs-12 col-sm-6">
               <q-field
-                :error="$v.events.endDate.$error"
+                :error="$v.service.startDate.$error"
+                :error-label="startError">
+                <q-datetime
+                  id="started"
+                  v-model="service.startDate"
+                  stack-label="Início do Evento"
+                  type="datetime"
+                  format24h
+                  format="DD/MM/YYYY HH:mm"
+                  ok-label="OK"
+                  @blur="$v.service.startDate.$touch"
+                  clear-label="Limpar"
+                  cancel-label="Cancelar"
+                  :day-names="['Dom','Seg', 'Ter','Qua','Qui','Sex','Sáb']"
+                  :month-names="['Janeiro', 'Fevereiro','Março','Abril','Maio','Junho',
+                'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']"
+                />
+              </q-field>
+            </div>
+            <div v-if="this.service.startDate !== ''" class="col-xs-12 col-sm-6">
+              <q-field
+                :error="$v.service.endDate.$error"
                 :error-label="endError">
                 <q-datetime
                   id="terminated"
                   format24h
-                  v-model="events.endDate"
-                  @blur="$v.events.endDate.$touch"
+                  v-model="service.endDate"
+                  @blur="$v.service.endDate.$touch"
                   stack-label="Termíno do Evento"
                   type="datetime"
                   format="DD/MM/YYYY HH:mm"
@@ -109,10 +117,7 @@
                 />
               </q-field>
             </div>
-        </template>
-      </template>
-
-        <template v-if="radio1 === 'all'">
+          </template>
           <div class="col-12">
             <div>
               Ordenar por:
@@ -126,26 +131,20 @@
           </div>
         </template>
           <template v-if="radio1 === 'all'">
-            <div class="col-12">
-              <div>
-                Situação:
+              <div class="col-xs-12 col-sm-6">
+                <q-dialog-select
+                  stack-label="Filtrar situações"
+                  title="Emitir relatório de eventos"
+                  v-model="select"
+                  :options="options"
+                />
               </div>
-              <div class="col-xs-12 col-sm-2">
-                <q-radio v-model="todos.status" val="one" label="Ativos" />
-              </div>
-              <div class="col-xs-12 col-sm-2">
-                <q-radio v-model="todos.status" val="zero" label="Desativados"/>
-              </div>
-              <div class="col-xs-12 col-sm-2">
-                <q-radio v-model="todos.status" val="two" label="Todos"/>
-              </div>
-            </div>
           </template>
           <div class="col-12">
             <q-stepper-navigation>
               <q-btn color="primary" flat @click="$refs.stepper.previous()">Back</q-btn>
               <template v-if="radio1 === 'individual'">
-                <q-btn color="primary" :disabled="$v.terms.$invalid" @click="individual()">Gerar</q-btn>
+                <q-btn color="primary" :disabled="checkTerms" @click="individual()">Gerar</q-btn>
               </template>
               <template v-if="radio1 === 'all'">
                 <q-btn color="primary" @click="all()">Gerar </q-btn>
@@ -160,7 +159,8 @@
 </template>
 <script>
   import {
-    filter
+    filter,
+    QDialogSelect
   } from 'quasar'
   import { CNPJ, CPF } from 'cpf_cnpj'
   import { required } from 'vuelidate/lib/validators'
@@ -168,23 +168,55 @@
   export default {
     data () {
       return {
+        select: 0,
         radio1: 'individual',
         terms: '',
+        checkInputTerms: false,
+        checkSelect: false,
         todos: {
           order: 'name',
           status: 'two'
         },
-        events: {
+        options: [
+          {
+            label: 'Todas as situações',
+            value: 0
+          },
+          {
+            label: 'Escala pendente',
+            value: 1
+          },
+          {
+            label: 'Aguardando data',
+            value: 2
+          },
+          {
+            label: 'Em andamento',
+            value: 3
+          },
+          {
+            label: 'Realizado',
+            value: 4
+          },
+          {
+            label: 'Cancelado',
+            value: 5
+          }
+        ],
+        service: {
           check: false,
-          filter: 'all',
           startDate: '',
           endDate: '',
-          order: 'name'
+          order: 'name',
+          filter: 'fullScale'
         },
         ret: false,
-        selectedEmployee: { address: {} },
-        employees: []
+        selectedEvent: {},
+        events: []
       }
+    },
+    components: {
+      QDialogSelect
     },
     validations: {
       events: {
@@ -201,7 +233,7 @@
           let data = {
             name: value
           }
-          this.$http.post('employee/exists', data)
+          this.$http.post('event/exists', data)
             .then((response) => {
               console.log(response.data)
               this.ret = response.data
@@ -211,7 +243,7 @@
       }
     },
     mounted () {
-      this.getEmployees()
+      this.getEvents()
     },
     methods: {
       all () {
@@ -224,40 +256,33 @@
           status = 1
         }
         if (this.todos.status === 'two') {
-          url = 'http://127.0.0.1:8000/api/reports/all/employee?order=' + this.todos.order
+          url = 'http://127.0.0.1:8000/api/reports/all/event?order=' + this.todos.order
         }
         else {
-          url = 'http://127.0.0.1:8000/api/reports/all/employee?order=' + this.todos.order + '&status=' + status
+          url = 'http://127.0.0.1:8000/api/reports/all/event?order=' + this.todos.order + '&status=' + status
         }
         console.log(url)
         window.open(url, '_blank')
       },
       individual () {
         let url
-        if (this.events.filter === 'all' && this.events.check === true) {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
-            this.terms + '&order=' + this.events.order
-        }
-        else if (this.events.filter === 'datetime' && this.events.check === true) {
-          let startDate = moment(this.events.startDate).format('YYYY-MM-DD HH:mm:ss')
-          let endDate = moment(this.events.endDate).format('YYYY-MM-DD HH:mm:ss')
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' +
-            this.terms + '&order=' + this.events.order + '&startDate=' + startDate + '&endDate=' + endDate
+        if (this.service.check === true) {
+          url = 'http://127.0.0.1:8000/api/reports/individual/event?id=' +
+            this.selectedEvent.id + '&type=' + this.service.filter
         }
         else {
-          url = 'http://127.0.0.1:8000/api/reports/individual/employee?name=' + this.terms
+          url = 'http://127.0.0.1:8000/api/reports/individual/event?id=' + this.selectedEvent.id
         }
         console.log(url)
-        console.log(this.terms)
-        window.open(url, '_blank')
+        // window.open(url, '_blank')
       },
-      goReportEmployee (value) {
+      goReportEvent (value) {
         let data = {
           name: this.terms,
           personal: value.group1[0],
           events: value.group1[1]
         }
-        let url = 'http://127.0.0.1:8000/api/reports/employee?name=' +
+        let url = 'http://127.0.0.1:8000/api/reports/event?id=' +
           data.name + '&' + 'personal=' + data.personal + '&events=' + data.events
         window.open(url, '_blank')
       },
@@ -272,28 +297,48 @@
           return CNPJ.format(value)
         }
       },
-      getEmployees () {
-        this.$http.get('http://127.0.0.1:8000/api/employees')
+      getEvents () {
+        this.$http.get('http://127.0.0.1:8000/api/events')
           .then(response => {
-            this.employees = response.data
+            this.events = response.data
           })
+      },
+      AlterTerms () {
+        this.terms = ''
+        this.selectedEvent = {}
       },
       search (terms, done) {
         setTimeout(() => {
-          done(filter(terms, {field: 'value', list: this.parseEmployees}))
+          done(filter(terms, {field: 'value', list: this.parseEvents}))
         }, 500)
       },
-      selected (employee) {
-        console.log(employee)
-        this.selectedEmployee = employee.allData
+      selected (event) {
+        this.checkSelect = true
+        this.selectedEvent = event.allData
       }
     },
     computed: {
+      buttonAlterTerms () {
+        if (this.terms !== '' && Object.keys(this.selectedEvent).length !== 0) {
+          return true
+        }
+        else {
+          return false
+        }
+      },
+      checkTerms () {
+        if (this.terms !== '' && Object.keys(this.selectedEvent).length !== 0) {
+          return false
+        }
+        else {
+          return true
+        }
+      },
       endError () {
-        if (!this.$v.events.endDate.required) {
+        if (!this.$v.service.endDate.required) {
           return 'Este campo é obrigatório!'
         }
-        else if (!this.$v.events.endDate.isAfter) {
+        else if (!this.$v.service.endDate.isAfter) {
           return 'Data inválida'
         }
         else {
@@ -301,21 +346,20 @@
         }
       },
       startError () {
-        if (!this.$v.events.startDate.required) {
+        if (!this.$v.service.startDate.required) {
           return 'Este campo é obrigatório!'
         }
         else {
           return null
         }
       },
-      parseEmployees () {
-        return this.employees.map(employee => {
-          let document = this.documentFormat(employee.document)
+      parseEvents () {
+        return this.events.map(event => {
           return {
-            allData: employee,
-            label: employee.name,
-            sublabel: 'CPF: ' + document,
-            value: employee.name
+            allData: event,
+            label: event.name,
+            sublabel: 'Cliente: ' + event.client.name,
+            value: event.name
           }
         })
       }

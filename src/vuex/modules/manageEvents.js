@@ -36,6 +36,7 @@ export default {
     employeeCheckinListGet (context, id) {
       return Vue.http.get('http://127.0.0.1:8000/api/manage/employee/checkin/list/events/' + id)
         .then((res) => {
+          console.log(res.data)
           context.commit('update', {
             state: 'employeeCheckinList',
             data: res.data

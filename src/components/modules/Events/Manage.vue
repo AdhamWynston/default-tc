@@ -95,19 +95,34 @@
           <template v-if="this.event.status === 3">
             <check-frequency-employees></check-frequency-employees>
           </template>
+          <template v-if="this.event.status === 4">
+            <check-frequency-employees-realized></check-frequency-employees-realized>
+          </template>
+          <template v-if="this.event.status === 5">
+            <q-alert
+              :color="negative"
+              style="margin-bottom: 1.5rem"
+            >
+              O evento foi cancelado!
+            </q-alert>
+          </template>
         </div>
     </div>
 </template>
 
 <script>
+    import { QAlert } from 'quasar'
     import moment from 'moment'
     import SelectEmployees from './manage/SelectEmployees.vue'
     import CheckFrequencyEmployees from './manage/CheckFrequencyEmployee.vue'
+    import CheckFrequencyEmployeesRealized from './manage/CheckFrequencyEmployeeRealized'
     import { CNPJ, CPF } from 'cpf_cnpj'
     export default {
       components: {
         SelectEmployees,
-        CheckFrequencyEmployees
+        CheckFrequencyEmployees,
+        CheckFrequencyEmployeesRealized,
+        QAlert
       },
       data () {
         return {

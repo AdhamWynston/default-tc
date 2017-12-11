@@ -46,7 +46,7 @@
         </div>
         <div v-if="events.check === true" class="col-12">
           <div class="col-12">
-            Filtrar eventos:
+            Filtrar Eventos:
           </div>
           <div class="col-xs-12 col-sm-2">
             <q-radio v-model="events.filter" val="all" label="Todos" />
@@ -63,7 +63,7 @@
           <q-radio v-model="events.order" val="name" label="Nome" />
           </div>
           <div class="col-xs-12 col-sm-2">
-          <q-radio v-model="events.order" val="date" label="Data de realização" />
+          <q-radio v-model="events.order" val="date" label="Data de Realização" />
           </div>
         </div>
         <template v-if="this.events.filter === 'datetime'">
